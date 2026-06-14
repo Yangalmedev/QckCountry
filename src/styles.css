@@ -9,7 +9,7 @@
 }
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #221d41 0%, #124c89 50%, #1e1741 100%);
+  --bg-gradient: linear-gradient(135deg, #342c8a 0%, #294867 50%, #1e1741 100%);
   --accent-color: #6366f1;
   --accent-hover: #4f46e5;
   --text-primary: #f3f4f6;
