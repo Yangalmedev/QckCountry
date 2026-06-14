@@ -38,25 +38,27 @@ const App = () => {
   const handleToggleShow = (i) => {
     setShowCountry(prevIndex => (prevIndex === i ? null : i));
   };
+  
 
   return (
-    <div>
-      find country: <input onChange={handleSearchChange} value={search} />
+    <div className="search">
+      <label htmlFor="search">Search for a Country:</label>
+      <input type="text" id="search" onChange={handleSearchChange} value={search} placeholder="Type here..." />
 
       <div className="country">
         {countries.length === 1 && <Country country={countries[0]} />}
-
+        
         {countries.length > 10 && (
-          <p>Too many matches, specify the country you want to search!</p>
+          <p className="country-warning">Too many matches, specify the country you want to search!</p>
         )}
 
         {countries.length > 1 && countries.length <= 10 && (
           countries.map((country, i) => (
-            <div key={country.cca3 || i}> 
-              <p>
+            <div key={country.cca3 || i} className="suggestion-row">
+              <p className="suggestion-content">
                 {country?.name?.common}
                 {" "}
-                <button onClick={() => handleToggleShow(i)}>
+                <button onClick={() => handleToggleShow(i)} className="toggle-btn">
                   {showCountry === i ? "hide" : "show"}
                 </button>
               </p>
@@ -64,7 +66,14 @@ const App = () => {
             </div>
           ))
         )}
-      </div>  
+      </div>
+
+      <p>Developed by Althea Mae Almedilla</p>
+      <p>Github Account: Yangalmedev</p>
+      <p className="cta">Click below for the GitHub Repository</p>
+      <a href="https://github.com/Yangalmedev/QckCountry">
+        https://github.com/Yangalmedev/QckCountry
+      </a>
     </div>
   );
 };
